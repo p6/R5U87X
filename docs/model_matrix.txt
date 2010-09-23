@@ -1,0 +1,20 @@
+VID     PID     Chipset Type    Name                                        Notes
+
+0x05CA  0x1803  R5U870  UVC     Flybook V5                                  
+0x05CA  0x1810  R5U870  UVC     HP Pavilion Webcam                          
+0x05CA  0x1812  Unknown UVC     HP Pavilion Webcam                          Used on HP Pavilion DV6502AU laptops. Apparently does not require ucode.
+0x05CA  0x1830  R5U870  WDM     Sony Visual Communication Camera VGP-VCC2   Used on Sony VAIO SZ laptops.
+0x05CA  0x1832  R5U870  WDM     Sony Visual Communication Camera VGP-VCC3   Used on Sony VAIO UX laptops.
+0x05CA  0x1833  R5U870  WDM     Sony Visual Communication Camera VGP-VCC2   Used on Sony VAIO AR1 laptops.
+0x05CA  0x1834  R5U870  WDM     Sony Visual Communication Camera VGP-VCC2   Used on Sony VAIO AR2 laptops.
+0x05CA  0x1835  R5U870  UVC     Sony Visual Communication Camera VGP-VCC5   Used on Sony VAIO SZ laptops.
+0x05CA  0x1836  R5U870  UVC     Sony Visual Communication Camera VGP-VCC4   Used on Sony VAIO FE laptops.
+0x05CA  0x1837  R5U870  UVC     Sony Visual Communication Camera VGP-VCC4   Used on Sony VAIO FZ laptops. The camera is installed upside down.
+0x05CA  0x1839  R5U870  UVC     Sony Visual Communication Camera VGP-VCC6   Used on Sony VAIO CR laptops.
+0x05CA  0x183a  R5U870  UVC     Sony Visual Communication Camera VGP-VCC7   Used on Sony VAIO SZ and TZ11 laptops.
+0x05CA  0x183b  R5U870  UVC     Sony Visual Communication Camera VGP-VCC8   Used on Sony VAIO FZ laptops.
+0x05CA  0x183e  R5U870  UVC     Sony Visual Communication Camera VGP-VCC9   Used on Sony VAIO FZ laptops.
+0x05CA  0x1841  R5U870  UVC     Fujitsu F01 / Fujitsu Lifebook U810         The camera is installed upside down.                     
+0x05CA  0x1870  R5U870  WDM     HP Pavilion Webcam / HP Webcam 1000         VID/PID combination used by two distinct devices. dv1xxx appears to be
+                                                                            the less common of the two. The only way to check the difference is to
+                                                                            read the model number out via DMI. Not currently supported by loader.

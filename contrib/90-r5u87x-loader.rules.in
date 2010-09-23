@@ -1,0 +1,20 @@
+# 90-r5u87x-loader.rules - udev rules for loading firmware into Ricoh R5U87x USB video devices
+###
+### This file is processed by the Makefile to create the final file. Each
+### USB id gets its own line as defined by the section between BEGINTEMPLATE
+### and ENDTEMPLATE. In the template, the strings #VENDORID#, #PRODUCTID# and
+### #LOADER# are replaced by their values. This template line is repeated for
+### each file in the directory ucode/ with a USB id.
+###
+### Lines starting with three hashes are removed from this file.
+###
+
+ACTION!="add", GOTO="r5u87x_rules_end"
+SUBSYSTEM!="usb", GOTO="r5u87x_rules_end"
+
+###BEGINTEMPLATE###
+ATTRS{idVendor}=="#VENDORID#", ATTRS{idProduct}=="#PRODUCTID#", RUN+="#LOADER# --reload"
+###ENDTEMPLATE###
+
+LABEL="r5u87x_rules_end"
+# vim: ft=conf

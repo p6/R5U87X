@@ -1,0 +1,5 @@
+$ make fw-extract
+$ ./fw-extract <path-to-firmware>.fw > firmware.hex 
+$ dis51 < firmware.hex > firmware.a51
+
+You now have your firmware in both Intel HEX format and disassembled.

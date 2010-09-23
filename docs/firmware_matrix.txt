@@ -1,0 +1,23 @@
+The beginning offsets and packet sizes appear to differ between UVC and WDM
+firmware files (the second byte is either 00 or 08). Perhaps this only occurs
+with microcode versions at or below 0x0100?
+
+VID     PID     Firmware name           Microcode version   Type    Notes
+
+0x05CA  0x1803  r5u87x-05ca-1803.fw     ??????              UVC     Unknown microcode version. Untested.
+0x05CA  0x1810  r5u87x-05ca-1810.fw     0x0115              UVC
+0x05CA  0x1812  r5u87x-05ca-1812.fw     ??????              UVC     No microcode required. http://bitbucket.org/ahixon/r5u87x/issue/42/
+0x05CA  0x1830  r5u87x-05ca-1830.fw     0x0100              WDM
+0x05CA  0x1832  r5u87x-05ca-1832.fw     0x0100              WDM
+0x05CA  0x1833  r5u87x-05ca-1833.fw     0x0100              WDM
+0x05CA  0x1834  r5u87x-05ca-1834.fw     0x0111              WDM
+0x05CA  0x1835  r5u87x-05ca-1835.fw     0x0107              UVC
+0x05CA  0x1836  r5u87x-05ca-1836.fw     0x0115              UVC
+0x05CA  0x1837  r5u87x-05ca-1837.fw     0x0115              UVC     Copy of 0x1836 firmware. Camera is installed upside down.
+0x05CA  0x1839  r5u87x-05ca-1839.fw     0x0113              UVC
+0x05CA  0x183a  r5u87x-05ca-183a.fw     0x0111              UVC
+0x05CA  0x183b  r5u87x-05ca-183b.fw     0x0131              UVC
+0x05CA  0x183e  r5u87x-05ca-183e.fw     0x0100              UVC     Very different looking ucode structure. R5U875? Broken?
+0x05CA  0x1841  r5u87x-05ca-1841.fw     0x0103              UVC     Apparently broken.
+0x05CA  0x1870  r5u87x-05ca-1870_1.fw   0x0100              WDM     Used for HP Webcam 1000
+0x05CA  0x1870  r5u87x-05ca-1870.fw     0x0112              WDM     Used for HP Pavilion dv1xxxx

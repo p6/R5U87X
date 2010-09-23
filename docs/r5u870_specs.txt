@@ -1,0 +1,9 @@
+As reported from Ricoh's website.
+
+Image format:   YUV422
+Audio codec:    I2S
+
+Frame rates:    VGA: 30fps
+                SXGA: 7.5fps
+
+

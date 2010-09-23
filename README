@@ -1,0 +1,130 @@
+R5U87x Userspace Tools
+Version 0.2.1, 2009/11/22
+
+Introduction
+============
+
+This project is an attempt to produce a group of useful usespace tools for
+managing cameras based on Ricoh R5U87x chipsets.
+
+You will still need to depend on such kernel drivers like uvcvideo to get the
+video stream out of the device.
+
+Supported devices
+=================
+
+See docs/model_matrix.txt
+
+Compilation
+===========
+
+To compile the tools, it is required you have the following prerequisites
+installed:
+
+ * GCC
+ * Automake
+ * libusb development packages (libusb-dev or similar)
+ * GLib 2.0 development packages (libglib2.0-dev or similar)
+
+Quickstart
+==========
+
+Ubuntu
+	$ sudo apt-get install libglib2.0-dev libusb-dev build-essential gcc automake mercurial
+	$ hg clone http://bitbucket.org/ahixon/r5u87x/
+	$ cd r5u87x
+	$ make
+	$ sudo make install
+	$ sudo r5u87x-loader --reload
+	
+	The loader will automatically be run on boot when it detects your webcam.
+
+Installation from source
+========================
+
+Simply install the dependencies required above on your system, then run
+'make'.
+ 
+Now you can proceed to installing the tool system-wide:
+ # make install
+
+If you have udev installed, your system will automatically load the firmware
+to the camera, and then reload the uvcvideo module at boot time.
+ 
+Please note that the loader is installed system-wide as 'r5u87x-loader', but
+compiles as just 'loader'.
+
+You can either reboot or follow the instructions below.
+
+Usage
+=====
+
+To upload the firmware to your camera, simply run (as root):
+  # loader --reload
+
+Do note that this only lasts while the camera still has power to it. Shutting
+down and starting up again will cause the camera to lose its state. Rebooting,
+however, won't.
+
+If your camera appears to be playing up, you can try forcefully resetting it:
+  # loader --force-clear
+
+There are also useful arguments for testing, see docs/extracting_ucode.txt
+
+Bugs
+====
+
+The following issues are known already, so please *do not* report them (you
+can, however, subscribe to any of these tickets):
+ * Broken pipe (code 32) - http://www.bitbucket.org/ahixon/r5u87x/issue/6/
+ * Distorted/stripy video - http://www.bitbucket.org/ahixon/r5u87x/issue/17/
+ * HP Pavillion dv9000 or similar aren't detected (make sure you uncomment
+   only *ONE* device, not both) - http://bitbucket.org/ahixon/r5u87x/issue/26/
+ * Upside down video - http://www.bitbucket.org/ahixon/r5u87x/issue/7/
+
+Please note WDM devices WILL NOT WORK.
+You can check what type of model you have by looking at the model chart found
+in docs/model_matrix.txt. If you're running a WDM based device, you can try to
+look on the internet for a patched version of r5u870, however it will probably
+not work with more recent kernels.
+
+You should also register, otherwise you may not get notifications of any
+replies to your bug.
+
+Report any bugs by creating a new ticket at 
+http://www.bitbucket.org/ahixon/r5u87x/issues/new/. If possible, make sure
+that the bug you have hasn't already been reported by searching the issue list.
+
+Copyrights and Licenses
+=======================
+
+Copyright (c) 2008-2009 Alexander Hixon <alex@alexhixon.com>
+
+These tools are licensed to you under the terms of the GNU GPL v2 or, at your
+option, any later version.  See the included file 'COPYING' for license.
+
+The files located under the 'ucode' directory were derived from
+usbsnoop/sniffusb tracing of various Windows drivers, including some named
+Mvc25u870.sys, 5U870CAP.sys, and R5U870FLx86.sys.
+
+Acknowledgements
+================
+
+Huge kudos to Sam Revitch for writing the original r5u870 driver.
+Additional thanks to those who helped Sam develop the driver.
+
+Many thanks to Willem van Engen for working on getting this included into
+Ubuntu, as well as helping me with my Makefile writing, writing the udev
+template and awk/sed scripts, and creating a Debian package.
+
+Thanks to Gonzalo Alvarez for testing the 1812 driver and providing usbsnoop
+traces of the device.
+
+Thanks to Utz-Uwe Haus for getting the Sony VGP-VCC7 firmware extracted, and
+providing a patch against the original r5u870 driver, and providing the
+recode-fw.scm script.
+
+Some friendly folk on the Ubuntu Forums for providing extracted version of
+firmwares and their associated version numbers.
+
+Thanks to 'franz' for providing an updated version of 183b driver, and testing.

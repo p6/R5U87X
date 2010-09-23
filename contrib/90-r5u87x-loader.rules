@@ -1,0 +1,24 @@
+# 90-r5u87x-loader.rules - udev rules for loading firmware into Ricoh R5U87x USB video devices
+
+ACTION!="add", GOTO="r5u87x_rules_end"
+SUBSYSTEM!="usb", GOTO="r5u87x_rules_end"
+
+ATTRS{idVendor}=="05ca", ATTRS{idProduct}=="1803", RUN+="/usr/sbin/r5u87x-loader --reload"
+ATTRS{idVendor}=="05ca", ATTRS{idProduct}=="1810", RUN+="/usr/sbin/r5u87x-loader --reload"
+ATTRS{idVendor}=="05ca", ATTRS{idProduct}=="1812", RUN+="/usr/sbin/r5u87x-loader --reload"
+ATTRS{idVendor}=="05ca", ATTRS{idProduct}=="1830", RUN+="/usr/sbin/r5u87x-loader --reload"
+ATTRS{idVendor}=="05ca", ATTRS{idProduct}=="1832", RUN+="/usr/sbin/r5u87x-loader --reload"
+ATTRS{idVendor}=="05ca", ATTRS{idProduct}=="1833", RUN+="/usr/sbin/r5u87x-loader --reload"
+ATTRS{idVendor}=="05ca", ATTRS{idProduct}=="1834", RUN+="/usr/sbin/r5u87x-loader --reload"
+ATTRS{idVendor}=="05ca", ATTRS{idProduct}=="1835", RUN+="/usr/sbin/r5u87x-loader --reload"
+ATTRS{idVendor}=="05ca", ATTRS{idProduct}=="1836", RUN+="/usr/sbin/r5u87x-loader --reload"
+ATTRS{idVendor}=="05ca", ATTRS{idProduct}=="1837", RUN+="/usr/sbin/r5u87x-loader --reload"
+ATTRS{idVendor}=="05ca", ATTRS{idProduct}=="1839", RUN+="/usr/sbin/r5u87x-loader --reload"
+ATTRS{idVendor}=="05ca", ATTRS{idProduct}=="183a", RUN+="/usr/sbin/r5u87x-loader --reload"
+ATTRS{idVendor}=="05ca", ATTRS{idProduct}=="183b", RUN+="/usr/sbin/r5u87x-loader --reload"
+ATTRS{idVendor}=="05ca", ATTRS{idProduct}=="183e", RUN+="/usr/sbin/r5u87x-loader --reload"
+ATTRS{idVendor}=="05ca", ATTRS{idProduct}=="1841", RUN+="/usr/sbin/r5u87x-loader --reload"
+ATTRS{idVendor}=="05ca", ATTRS{idProduct}=="1870", RUN+="/usr/sbin/r5u87x-loader --reload"
+
+LABEL="r5u87x_rules_end"
+# vim: ft=conf

@@ -1,0 +1,16 @@
+Resolutions for UVC cameras are reported by the camera itself. The table below
+only describes the resolutions for WDM cameras, since they don't do it.
+
+Type    Width   Height  Required bandwidth
+VGA     160     120     1152000
+VGA     176     144     1520640
+VGA     320     240     4608000
+VGA     352     288     6082560
+VGA     640     480     18432000
+	
+SXGA    160     120     1152000
+SXGA    176     144     1520640
+SXGA    320     240     4608000
+SXGA    352     288     6082560
+SXGA    640     480     18432000
+SXGA    1280    1024    19660800

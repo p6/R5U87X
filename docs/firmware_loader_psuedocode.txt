@@ -1,0 +1,32 @@
+pointer = 0;
+index = 0;
+remaining = filesize;
+
+length = 0;
+remote_address = 0;
+
+while remaining more than 0:
+	if remaining less than 3:
+		print "Microcode file is incomplete - got to message %index%."
+	
+	// load in packet information (length, address)
+	length = pointer[0]
+	remote_address = pointer[1] | (pointer[2] << 8)
+	pointer += 3
+	reminaing -= 3
+
+	if (remaining less than length) or (length more than 64):
+		print "Microcode message %index% has bad length %length%."
+	
+	// load in packet payload
+	result = usb_control_msg (device, ..., 0xa0, addr, 0, pointer, length, timeout);
+	pointer += length
+	remaining -= length
+
+	if result less than 0:
+		print "Command failed. Message: %index%; result: %result%."
+	
+	if result not equal to length:
+		print "Command failed. Message: %index&; result: %result%; expected: %length%."
+	
+	index += 1
