@@ -30,8 +30,8 @@ Quickstart
 ==========
 
 Ubuntu
-	$ sudo apt-get install libglib2.0-dev libusb-dev build-essential gcc automake mercurial
-	$ hg clone http://bitbucket.org/ahixon/r5u87x/
+	$ sudo apt-get install libglib2.0-dev libusb-dev build-essential gcc automake git
+	$ git clone https://github.com/p6/R5U87X.git
 	$ cd r5u87x
 	$ make
 	$ sudo make install
